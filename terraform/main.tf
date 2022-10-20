@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
       bucket = "tourfluent"
-      key    = "build/terraform.tfstate1"
+      key    = "build/terraform.tfstate"
       region = "us-east-1"
   } 
 } 
@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "website_policy" {
       type = "AWS"
     }
     resources = [
-      "arn:aws:s3:::tourflouent/*"
+      "arn:aws:s3:::tourfluent/*"
     ]
   }
 }
