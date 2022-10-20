@@ -7,7 +7,7 @@ terraform {
       bucket = "tourfluent"
       key    = "build/terraform.tfstate"
       region = "us-east-1"
-  }
+  } 
 }
 
 data "aws_iam_policy_document" "website_policy" {
