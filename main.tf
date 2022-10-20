@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      Version = "~>3.27"
+      version = "~>3.27"
     }
   }
 
@@ -21,6 +21,7 @@ required_version = ">=0.14.9"
        key    = "smith2002sc6361"
      region = "east-us-1"
    }
+}
 
 
 resource "aws_s3_bucket" "s3Bucket" {
