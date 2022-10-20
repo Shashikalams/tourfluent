@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-      bucket = "tourfluent"
+      bucket = "shashikalastorage"
       key    = "build/terraform.tfstate"
       region = "us-east-1"
   } 
