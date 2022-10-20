@@ -10,8 +10,8 @@ terraform {
 
 }
 provider "aws" {
-  region = "us-east-1"
-  profile = "shashikala"
+  version = "~>3.0"
+  region  = "us-east-1"
 }
 
 
