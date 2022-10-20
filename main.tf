@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 required_version = ">=0.14.9" 
-
+terraform {
    backend "s3" {
        bucket = "[tourfluent]"
        key    = "[smith2002sc6361]"
