@@ -13,8 +13,7 @@ provider "aws" {
   version = "~>3.0"
   region  = "east-us-1"
 }
-
-required_version = ">=0.14.9" 
+ 
 terraform {
    backend "s3" {
        bucket = "[tourfluent]"
