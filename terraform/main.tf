@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
       bucket = "tourfluent"
-      key    = "build/terraform.tfstate"
+      key    = "build/terraform.tfstate1"
       region = "us-east-1"
   } 
 } 
