@@ -1,52 +1,37 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "~>3.27"
-    }
-  }
-
-  required_version = ">=0.14.9"
-
-}
 provider "aws" {
-  version = "~>3.0"
   region  = "us-east-1"
 }
 
-
 terraform {
-  required_version = ">=0.14.9"
-
-   backend "s3" {
-       bucket = "tourfluent"
-       key    = "smith2002sc6361"
-     region = "east-us-1"
-   }
+  backend "s3" {
+      bucket = "tourfluent"
+      key    = "build/terraform.tfstate"
+      region = "us-east-1"
+  }
 }
 
+data "aws_iam_policy_document" "website_policy" {
+  statement {
+    actions = [
+      "s3:GetObject"
+    ]
+    principals {
+      identifiers = ["*"]
+      type = "AWS"
+    }
+    resources = [
+      "arn:aws:s3:::tourfluent/*"
+    ]
+  }
+}
 
 resource "aws_s3_bucket" "s3Bucket" {
      bucket = "tourfluent"
      acl       = "public-read"
 
-     policy  = <<EOF
-{
-     "id" : "MakePublic",
-   "version" : "2012-10-17",
-   "statement" : [
-      {
-         "action" : [
-             "s3:GetObject"
-          ],
-         "effect" : "Allow",
-         "resource" : "arn:aws:s3:::tourfluent/*",
-         "principal" : "*"
-      }
-    ]
-  }
-EOF
-  website {
+     policy = data.aws_iam_policy_document.website_policy.json
+
+   website {
        index_document = "index.html"
    }
 }
