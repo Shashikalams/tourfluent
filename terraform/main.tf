@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "website_policy" {
       type = "AWS"
     }
     resources = [
-      "arn:aws:s3:::tourfluent/*"
+      "arn:aws:s3:::tourflouent/*"
     ]
   }
 }
