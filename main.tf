@@ -10,9 +10,10 @@ terraform {
 
 }
 provider "aws" {
-  version = "~>3.0"
-  region  = "east-us-1"
+  region = "us-east-1"
+  profile = "shashikala"
 }
+
 
 terraform {
   required_version = ">=0.14.9"
